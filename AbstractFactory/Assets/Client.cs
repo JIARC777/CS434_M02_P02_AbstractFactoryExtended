@@ -12,7 +12,9 @@ public class Client : MonoBehaviour
     public Text numWings;
     public Text numEngines;
     public Text containRocket;
-    public AbstractFactory factory;
+    // public AbstractFactory factory;
+
+    IPlane plane;
     // Update is called once per frame
     void Update()
     {
@@ -23,9 +25,10 @@ public class Client : MonoBehaviour
             requirements.rocket = rocket;
             requirements.numberOfEngines = howManyEngines;
             requirements.numberOfWings = howManyWings;
-
+            AbstractFactory factory = new AbstractFactory();
             // Send Requirements to factory;
-            factory.SpawnItem(requirements);
+            plane = factory.createItem(requirements);
+            plane.spawnItem();
         }
         // Increment the number of wings with the + -   Clip values between 0 and 4
         if (Input.GetKeyDown("="))

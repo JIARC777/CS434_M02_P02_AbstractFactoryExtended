@@ -5,23 +5,26 @@ using UnityEngine;
 
 public class AbstractFactory: MonoBehaviour
 {
-	public GliderFactory gliderFactory;
-	public AircraftFactory aircraftFactory;
-	public RocketFactory rocketFactory;
+	//public GliderFactory gliderFactory;
+	//public AircraftFactory aircraftFactory;
+	//public RocketFactory rocketFactory;
 	
-	public void SpawnItem(Requirements reqs)
+	public IPlane createItem(Requirements reqs)
 	{
 		if (reqs.rocket)
 		{
-			rocketFactory.ManufactureRocket(reqs);
+			RocketFactory rocketFactory = new RocketFactory();
+			return rocketFactory.ManufactureRocket(reqs);
 		}
 		else if (reqs.numberOfEngines > 0)
 		{
-			aircraftFactory.ManufacturePoweredAircraft(reqs);
+			AircraftFactory aircraftFactory = new AircraftFactory();
+			return aircraftFactory.ManufacturePoweredAircraft(reqs);
 			
 		} else
 		{
-			gliderFactory.ManufactureGlider(reqs);
+			GliderFactory gliderFactory = new GliderFactory();
+			return gliderFactory.ManufactureGlider(reqs);
 		}
 	}
 }
