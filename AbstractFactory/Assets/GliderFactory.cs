@@ -14,6 +14,7 @@ public class GliderFactory
 				return new OneWingGlider();
 
 			case 2:
+				Debug.Log("log");
 				//	product = Instantiate(Resources.Load("2WingGlider", typeof(GameObject))) as GameObject;
 				return new TwoWingGlider();
 

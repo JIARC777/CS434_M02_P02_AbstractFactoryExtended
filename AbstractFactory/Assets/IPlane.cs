@@ -11,30 +11,34 @@ public interface IPlane
 
 public class OneWingGlider: MonoBehaviour, IPlane
 {
+	GameObject product;
 	public void spawnItem()
 	{
-
+		product = Instantiate(Resources.Load("1WingGlider", typeof(GameObject))) as GameObject;
 	}
 }
 public class TwoWingGlider : MonoBehaviour, IPlane
 {
+	GameObject product;
 	public void spawnItem()
 	{
-
+		product = Instantiate(Resources.Load("2WingGlider", typeof(GameObject))) as GameObject;
 	}
 }
 public class ThreeWingGlider : MonoBehaviour, IPlane
 {
+	GameObject product;
 	public void spawnItem()
 	{
-
+		product = Instantiate(Resources.Load("3WingGlider", typeof(GameObject))) as GameObject;
 	}
 }
 public class FourWingGlider : MonoBehaviour, IPlane
 {
+	GameObject product;
 	public void spawnItem()
 	{
-
+		product = Instantiate(Resources.Load("4WingGlider", typeof(GameObject))) as GameObject;
 	}
 }
 
